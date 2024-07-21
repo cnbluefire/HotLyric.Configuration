@@ -1,0 +1,141 @@
+{
+    "$id": "https://github.com/cnbluefire/HotLyric.Configuration/blob/main/schema/hotlyric-configuration-schema.json",
+    "$schema": "https://json-schema.org/draft/2019-09/schema#",
+    "title": "HotLyric 配置文件",
+    "properties": {
+        "mediaSessionApps": {
+            "description": "提供 Media Session 的应用列表",
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "appId": {
+                        "description": "提供 Media Session 的 App 的唯一 Id",
+                        "type": "string"
+                    },
+                    "sessionType": {
+                        "description": "Media Session 类型",
+                        "type": "string",
+                        "enum": [
+                            "SMTC_PackagedApp",
+                            "SMTC_UnPackagedApp",
+                            "YesPlayMusic"
+                        ]
+                    },
+                    "appInfo": {
+                        "description": "提供 Media Session 的 App 信息，Packaged app 可以不设置",
+                        "type": [
+                            "object",
+                            "null"
+                        ],
+                        "properties": {
+                            "displayName": {
+                                "description": "App 名称",
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            },
+                            "icon": {
+                                "description": "App 图标",
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            },
+                            "supportLaunch": {
+                                "description": "是否支持从热词中启动，默认为 true",
+                                "type": "boolean",
+                                "default": true
+                            },
+                            "msStoreProductId": {
+                                "description": "微软商店产品Id",
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            }
+                        }
+                    },
+                    "match": {
+                        "description": "匹配应用信息",
+                        "type": "object",
+                        "properties": {
+                            "regex": {
+                                "description": "正则表达式",
+                                "type": "string"
+                            },
+                            "minSupportedVersion": {
+                                "description": "支持的最低版本",
+                                "type": [
+                                    "string",
+                                    "null"
+                                ],
+                                "pattern":"^(?:(\\d+)\\.)?(?:(\\d+)\\.)?(?:(\\d+)\\.)?(\\d+)$"
+                            }
+                        }
+                    },
+                    "options": {
+                        "description": "Media Session 选项",
+                        "type": "object",
+                        "properties": {
+                            "mediaInfoServer": {
+                                "description": "YesPlayMusic 的媒体信息服务器地址",
+                                "type": [
+                                    "string",
+                                    "null"
+                                ],
+                                "default": null
+                            },
+                            "positionMode": {
+                                "description": "正在播放的进度获取模式",
+                                "type": "string",
+                                "enum": [
+                                    "fromApp",
+                                    "fromAppAndUseTimer",
+                                    "onlyUseTimer"
+                                ],
+                                "default": "fromApp"
+                            },
+                            "defaultLrcProvider": {
+                                "description": "默认的歌词提供器",
+                                "type": [
+                                    "string",
+                                    "null"
+                                ],
+                                "examples": [
+                                    "NetEase",
+                                    "QQMusic"
+                                ],
+                                "default": "NetEase"
+                            },
+                            "convertToSimpleChinese": {
+                                "description": "是否将繁体中文转换为简体中文，默认为 false",
+                                "type": "boolean",
+                                "default": false
+                            },
+                            "mediaPropertiesMode": {
+                                "description": "读取媒体信息的模式",
+                                "type": "string",
+                                "enum": [
+                                    "Default",
+                                    "NCMClient",
+                                    "AppleMusic"
+                                ],
+                                "default": "Default"
+                            }
+                        }
+                    }
+                },
+                "required": [
+                    "appId",
+                    "sessionType",
+                    "match"
+                ]
+            }
+        }
+    },
+    "required": [
+        "mediaSessionApps"
+    ]
+}
