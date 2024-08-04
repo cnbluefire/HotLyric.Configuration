@@ -11,8 +11,8 @@ jobs:
     - name: Mirror the Github organization repos to Gitee.
       uses: Yikun/hub-mirror-action@master
       with:
-        src: github/Yikun
-        dst: gitee/yikunkero
+        src: github/cnbluefire
+        dst: gitee/blue-fire
         dst_key: ${{ secrets.GITEE_SYNC_PRIVATE_KEY }}
         dst_token:  ${{ secrets.GITEE_TOKEN }}
         static_list: 'HotLyric.Configuration'
