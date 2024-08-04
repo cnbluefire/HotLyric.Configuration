@@ -134,6 +134,7 @@
                 "regex": "^com\\.electron\\.yesplaymusic$"
             },
             "options": {
+                "mediaInfoServer": "http://127.0.0.1:27232",
                 "positionMode": "fromApp",
                 "defaultLrcProvider": "NetEase",
                 "mediaPropertiesMode": "Default"
