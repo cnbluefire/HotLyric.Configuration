@@ -1,0 +1,21 @@
+on:
+  push:
+  pull_request_target:
+    branches: [main]
+name: Gitee repos mirror periodic job
+jobs:
+  run:
+    name: Run
+    runs-on: ubuntu-latest
+    steps:
+    - name: Mirror the Github organization repos to Gitee.
+      uses: Yikun/hub-mirror-action@master
+      with:
+        src: github/Yikun
+        dst: gitee/yikunkero
+        dst_key: ${{ secrets.GITEE_SYNC_PRIVATE_KEY }}
+        dst_token:  ${{ secrets.GITEE_TOKEN }}
+        static_list: 'HotLyric.Configuration'
+        force_update: true
+        debug: true
+        mappings: 'hashes=>hashes_gitee'
