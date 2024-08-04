@@ -17,5 +17,5 @@ jobs:
         dst_token:  ${{ secrets.GITEE_TOKEN }}
         static_list: 'HotLyric.Configuration'
         force_update: true
-        debug: true
+        debug: false
         mappings: 'hashes=>hashes_gitee'
