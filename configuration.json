@@ -235,6 +235,37 @@
                 "defaultLrcProvider": "NetEase",
                 "mediaPropertiesMode": "AppleMusic"
             }
+        },
+        {
+            "appId": "spotify",
+            "sessionType": "SMTC_UnPackagedApp",
+            "appInfo": {
+                "displayName": "Spotify",
+                "icon": "assets/SpotifyIcon.png"
+            },
+            "match": {
+                "regex": "^Spotify.exe$"
+            },
+            "options": {
+                "positionMode": "fromAppAndUseTimer",
+                "defaultLrcProvider": "QQMusic",
+                "mediaPropertiesMode": "Default"
+            }
+        },
+        {
+            "appId": "spotify_store",
+            "sessionType": "SMTC_PackagedApp",
+            "appInfo": {
+                "msStoreProductId": "9ncbcszsjrsb"
+            },
+            "match": {
+                "regex": "^SpotifyAB.SpotifyMusic_"
+            },
+            "options": {
+                "positionMode": "fromAppAndUseTimer",
+                "defaultLrcProvider": "QQMusic",
+                "mediaPropertiesMode": "Default"
+            }
         }
     ]
 }
