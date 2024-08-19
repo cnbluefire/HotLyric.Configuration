@@ -181,7 +181,7 @@
                 "icon": "assets/MSEdgeDevIcon.png"
             },
             "match": {
-                "regex": "^MSEdgeDev"
+                "regex": "^MSEdgeDev$"
             },
             "options": {
                 "positionMode": "fromAppAndUseTimer",
